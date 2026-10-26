@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estado del Metro · Montec</title>
+  <style>
+    :root {
+      /* Ajustar estos dos valores después de ver el resultado */
+      --alto-visible: 680px;
+      --recorte-superior: 200px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #111218; color: #d8dbe4; }
+    .vista-metro {
+      position: relative;
+      width: 100%;
+      height: var(--alto-visible);
+      overflow: hidden;
+      border: 1px solid #2e3340;
+      border-radius: 7px;
+      background: #111218;
+    }
+    .vista-metro iframe {
+      position: absolute;
+      top: calc(-1 * var(--recorte-superior));
+      left: 0;
+      width: 100%;
+      min-width: 1000px;
+      height: 1000px;
+      border: 0;
+      /* Vista exclusivamente informativa: evita desplazar el contenido interno hasta combustibles. */
+      pointer-events: none;
+    }
+    .pie {
+      font-size: 12px;
+      margin: 9px 4px 0;
+      color: #a4a9b7;
+    }
+    .pie a { color: #9cc9ff; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="vista-metro" aria-label="Estado de la red Metro de Santiago">
+      <iframe src="https://revisalo.cl/movilidad" title="Estado del Metro y estaciones en Revísalo.cl" loading="lazy"></iframe>
+    </section>
+    <p class="pie">Información referencial de <a href="https://revisalo.cl/movilidad" target="_blank" rel="noopener noreferrer">Revísalo.cl</a> (fuente no oficial). Para incidencias, confirmar en <a href="https://www.metro.cl/el-viaje/estado-red" target="_blank" rel="noopener noreferrer">Metro de Santiago</a>.</p>
+  </main>
+</body>
+</html>
